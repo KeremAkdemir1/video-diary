@@ -38,7 +38,6 @@ export default function DetailsScreen() {
         console.log("Kaydet butonuna basıldı", { title, description, source });
 
         try {
-            // Yeni veri ekliyoruz
             const result = await updateVideo();
             console.log("Veri kaydedildi");
             router.push({
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     textArea: {
-        height: 100, // TextArea'nın yüksekliğini arttırabiliriz
+        height: 100,
     },
     videoContainer: {
         flex: 1,

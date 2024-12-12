@@ -6,7 +6,6 @@ import * as SQLite from 'expo-sqlite';
 import { router } from "expo-router";
 import * as FileSystem from 'expo-file-system';
 
-// Veritabanı bağlantısını oluşturuyoruz
 
 export default function index() {
     const searchParams = useSearchParams();
@@ -24,7 +23,7 @@ export default function index() {
         changeSourceFile()
     }, [])
     const generateRandomFileName = () => {
-        const randomValue = Math.random().toString(36).substr(2, 15); // 9 karakterlik rastgele bir değer
+        const randomValue = Math.random().toString(36).substr(2, 15);
         return randomValue;
       };
     const changeSourceFile = async () => {
@@ -35,11 +34,10 @@ export default function index() {
     }
       const moveToPermanentStorage = async (uri:any) => {
         try {
-            const fileExtension = uri.split('.').pop(); // Dosya uzantısını al
-            const fileName = generateRandomFileName() + '.' + fileExtension; // Rastgele isim ve uzantıyı birleştir
+            const fileExtension = uri.split('.').pop();
+            const fileName = generateRandomFileName() + '.' + fileExtension;
             const newUri = FileSystem.documentDirectory + fileName;
       
-          // Dosyayı uygulama dizinine kopyala
           await FileSystem.copyAsync({
             from: uri,
             to: newUri,
@@ -70,12 +68,10 @@ export default function index() {
         }
 
     };
-    // Veritabanı işlemlerini async/await ile yönetmek için
     const handleSave = async () => {
         console.log("Kaydet butonuna basıldı", { title, description, source });
 
         try {
-            // Yeni veri ekliyoruz
             const result = await insertVideo();
             console.log("Veri kaydedildi");
               router.push({
@@ -160,7 +156,7 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     textArea: {
-        height: 100, // TextArea'nın yüksekliğini arttırabiliriz
+        height: 100, 
     },
     videoContainer: {
         flex: 1,

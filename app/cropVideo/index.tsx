@@ -4,7 +4,7 @@ import * as React from 'react';
 import { FFmpegKit, FFmpegKitConfig, ReturnCode } from 'ffmpeg-kit-react-native';
 import { makeDirectoryAsync, getInfoAsync, cacheDirectory } from 'expo-file-system';
 import { launchImageLibraryAsync, MediaTypeOptions } from 'expo-image-picker';
-import { useMutation } from '@tanstack/react-query'; // Import Tanstack Query
+import { useMutation } from '@tanstack/react-query'; 
 import * as MediaLibrary from 'expo-media-library';
 import { Ionicons } from '@expo/vector-icons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
@@ -52,7 +52,7 @@ const trimVideoFn = async (sourceVideo: string, multiSliderValue: number[]): Pro
   const returnCode = await ffmpegSession.getReturnCode();
 
   if (ReturnCode.isSuccess(returnCode)) {
-    return resultVideo;  // Return the result path
+    return resultVideo;  
   } else {
     throw new Error('FFmpeg execution failed');
   }
@@ -72,8 +72,6 @@ export default function App() {
   }, [])
   const [multiSliderValue, setMultiSliderValue] = React.useState([0, 5]);
   const [isLoading, setIsLoading] = React.useState(false)
-  // Fixing the type of useMutation
-  // Correctly use useMutation
   const {
     data,
     error,
@@ -103,12 +101,11 @@ export default function App() {
     onSettled: (data, error) => {
       console.log('Mutation settled', data, error);
     },
-    retry: 3,  // Retry failed mutation 3 times
-    retryDelay: 1000,  // 1 second delay between retries
-    meta: { key: 'video-trimming' },  // Custom meta data
+    retry: 3, 
+    retryDelay: 1000, 
+    meta: { key: 'video-trimming' }, 
   });
   
-  // Handling trim video logic
   const handleTrimVideo = () => {
     mutate([source, multiSliderValue], {
       onSuccess: (data) => {
@@ -147,7 +144,7 @@ export default function App() {
         title={'Source'} 
         sliderValue={multiSliderValue} 
         setSliderValue={setMultiSliderValue} 
-        trimVideo={handleTrimVideo}  // Trigger the mutation via this function
+        trimVideo={handleTrimVideo}  
       />
     </View>
   );

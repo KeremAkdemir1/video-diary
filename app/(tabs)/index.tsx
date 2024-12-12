@@ -39,7 +39,7 @@ export default function Home() {
         <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Videos</Text>
       </View>
       <ScrollView style={{ width: '90%', height: '90%' }}>
-      {data.map((video) => ( // Alınan verileri map ile gösteriyoruz
+      {data.map((video) => (
           <TouchableOpacity key={video.id} style={{ padding: 10,backgroundColor:'#FFF',elevation:6,margin:20 }} onPress={() => {
               router.push({
                 pathname: '/details',

@@ -20,10 +20,9 @@ export default function Crop() {
   });
   const moveToPermanentStorage = async (uri: any) => {
     try {
-      const fileName = uri.split('/').pop(); // Dosya adını almak
+      const fileName = uri.split('/').pop();  
       const newUri = FileSystem.documentDirectory + fileName;
 
-      // Dosyayı uygulama dizinine kopyala
       await FileSystem.copyAsync({
         from: uri,
         to: newUri,
