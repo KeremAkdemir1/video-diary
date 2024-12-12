@@ -44,8 +44,8 @@ const trimVideoFn = async (sourceVideo: string, multiSliderValue: number[]): Pro
 
   const sourcePath = sourceVideo.replace('file://', '');
   const resultPath = resultVideo.replace('file://', '');
-
-  const ffmpegCommand = `-ss ${multiSliderValue[0]} -i ${sourcePath} -t ${multiSliderValue[1]} -c copy -y ${resultPath}`;
+  console.log(multiSliderValue)
+  const ffmpegCommand = `-ss ${multiSliderValue[0]} -i ${sourcePath} -t 5 -c:v copy -c:a aac -y ${resultPath}`;
   console.log('FFmpeg command:', ffmpegCommand);
 
   const ffmpegSession = await FFmpegKit.execute(ffmpegCommand);
