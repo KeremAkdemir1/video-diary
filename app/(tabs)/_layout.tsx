@@ -1,45 +1,36 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+export default function TabsLayout() {
+    return (
+        <Tabs
+            screenOptions={{
+                tabBarStyle: { backgroundColor: "#1e90ff",margin:20,borderRadius:10 },
+                tabBarActiveTintColor: "#fff",
+                tabBarInactiveTintColor: "#ccc",
+                headerShown: false,
+                title:''
+            }}
+        >
+            <Tabs.Screen
+                name="index"
+                options={{
+                    tabBarLabel: "Videos",
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="image-outline" color={color} size={size} />
+                    ),
+                }}
+            />
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+            <Tabs.Screen
+                name="videoSelect/index"
+                options={{
+                    tabBarLabel: "Crop Video",
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="crop-outline" color={color} size={size} />
+                    ),
+                }}
+            />
+        </Tabs>
+    );
 }

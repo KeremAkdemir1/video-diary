@@ -1,50 +1,52 @@
-# Welcome to your Expo app 👋
+# Video Diary
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## This is an Test case for SevenApps
 
-## Get started
+## Features
+Bottom Tab,
+Details Page For Displaying Video And Editing Data
+Record video diary entries and store them locally.
+View video entries with playback controls.
+Edit and update video details.
+Manage app data using SQLite.
+Video Management With Expo-Video
+Crop Video With FFMPEG
+Usage Of Tanstack Query With FFMPEG
 
-1. Install dependencies
+## Installation
+To get started with the project, follow these steps:
 
-   ```bash
-   npm install
-   ```
+## Prerequisites
+Make sure you have the following installed on your machine:
 
-2. Start the app
+Node.js
+Expo CLI
+### 1. Clone the repository
 
-   ```bash
-    npx expo start
-   ```
+git clone https://github.com/KeremAkdemir1/video-diary.git
+cd video-diary
+### 2. Install dependencies
+Run the following command to install all required dependencies:
 
-In the output, you'll find options to open the app in a
+npx yarn install / yarn install
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+npx yarn prebuild / yarn prebuild
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 3. Start the development server
+Expo Go is not supporting FFMPEG because of this we have to use custom development server
 
-## Get a fresh project
+npx yarn android / yarn android
+Or
+npx yarn ios / yarn ios
 
-When you're ready, run:
+## Dependencies
 
-```bash
-npm run reset-project
-```
+This project uses the following dependencies:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+expo: The main Expo SDK to build React Native apps.
+expo-router: Simplifies routing for Expo projects.
+expo-sqlite: Provides SQLite support for local data storage.
+expo-video: Plays videos within the app.
+@react-navigation/native and @react-navigation/bottom-tabs: For navigating between screens.
+@tanstack/react-query: For data fetching and caching.
+ffmpeg-kit-react-native: For video processing capabilities.
